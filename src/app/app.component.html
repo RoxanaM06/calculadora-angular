@@ -1,19 +1,11 @@
 <div class="div container">
   <h1>{{titulo}}</h1>
 
-  <div class="form-group">
-    <label>Operando A</label>
-    <input type="number" class="form-control" [(ngModel)]='operandoA'>
-  </div>
-  <br>
-  <div class="form-group">
-    <label>Operando B</label>
-    <input type="number" class="form-control" [(ngModel)]='operandoB'>
-  </div>
-  <br>
-  <div>
-    <button type="submit" class="btn btn-primary" (click)="sumar()">Sumar</button>
-    <p>Resultado: {{ resultado }}</p>
-  </div>
-
+  <app-formulario
+  (resultadoSuma)="procesarResultado($event)"
+  ></app-formulario>
+  <app-resultado
+  [resultadoHijo]="resultadoPadre"
+  ></app-resultado>
+  
 <router-outlet></router-outlet>
